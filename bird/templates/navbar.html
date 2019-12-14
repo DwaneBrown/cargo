@@ -1,0 +1,56 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+    <!-- styles block -->
+    {% block styles %}
+    <link rel="stylesheet" href="{% static 'css/navbar.css' %}">
+    {% endblock %}
+</head>
+
+<body>
+
+    <nav>
+        <div class="logo">
+            <a href="{% url 'picsToday' %}" id="logo">Pack PIcs</a>
+        </div>
+
+        <!-- search form -->
+        <div class="col-sm-4 col-md-4 navbar-right">
+
+            <form class="navbar-form" role="search" action="{% url 'search_results' %}">
+
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Search" name="pics">
+                    <div class="input-group-btn">
+                        <button class="btn btn-success" type="submit">search</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <div class="burger">
+            <div class="line1"></div>
+            <div class="line2"></div>
+            <div class="line3"></div>
+        </div>
+    </nav>
+
+    {% block scripts %}
+    <script src="{% static 'js/scripts.js' %}"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+    {% endblock %}
+</body>
+
+</html>

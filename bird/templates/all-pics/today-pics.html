@@ -1,0 +1,49 @@
+{% extends 'all-pics/base.html' %}
+
+{% block content %}
+{{ block.super }}
+
+
+<div class="container">
+
+    <!-- Looping through news   -->
+    {% for bird_item in bird %}
+
+    <div class="row">
+        <!-- displaying pics -->
+        <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7">
+            <div class="card" style="width: 32rem;">
+                <img src="{{ bird_item.cover.url }}" class="card-img-top img-responsive" alt="Image">
+                <div class="card-body">
+                    <h5 class="card-title">{{ bird_item.title }}</h5>
+                    <small class="card-text text-muted">By {{ bird_item.editor }} on {{ bird_item.pub_date|date:"F d, Y" }}</small>
+                    <a href="/detail/{{ bird_item.id}}" class="btn btn-primary">View</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5">
+            <div class="card" style="width: 28rem;">
+                <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                        card's content.</p>
+                    <a href="#" class="card-link">Card link</a>
+                    <a href="#" class="card-link">Another link</a>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+    {% empty %}
+    <div class="row">
+        <h2 class="text-center">No pics to display</h2>
+    </div>
+    {% endfor %}
+
+</div>
+
+{% endblock %}

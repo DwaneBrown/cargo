@@ -1,0 +1,14 @@
+{% extends 'all-pics/base.html' %}
+
+{% block content %}
+{{ block.super }}
+<!-- Looping through news   -->
+<div class="col-md-6">
+    <img src="{{ image.cover.url }}" alt="">
+</div>
+<div class="col-md-6">
+    <p class="card-text">{{ image.post }}</p>
+</div>
+
+
+{% endblock %}
